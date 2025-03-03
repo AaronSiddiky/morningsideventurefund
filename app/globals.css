@@ -1,0 +1,513 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  background-color: #fafafa;
+  position: relative;
+}
+
+body::before, body::after, .distorted-line {
+  display: none;
+}
+
+/* Add flowing curved dotted lines */
+.curved-line-1, .curved-line-2, .curved-line-3 {
+  position: fixed;
+  top: 0;
+  height: 100vh;
+  width: 1.5px;
+  pointer-events: none;
+  z-index: 1;
+  background: repeating-linear-gradient(to bottom, #75B2FF 0, #75B2FF 3px, transparent 3px, transparent 10px);
+  transform-origin: top center;
+}
+
+/* First line - left side with flowing curve */
+.curved-line-1 {
+  left: 5%;
+  transform: perspective(1000px) rotateY(5deg) rotateX(2deg);
+  opacity: 0.5;
+  animation: flowLine1 15s ease-in-out infinite;
+}
+
+/* Second line - center with opposite flowing curve */
+.curved-line-2 {
+  left: 48%;
+  transform: perspective(1000px) rotateY(-8deg) rotateX(-3deg);
+  opacity: 0.5;
+  animation: flowLine2 18s ease-in-out infinite;
+}
+
+/* Third line - right side with flowing curve */
+.curved-line-3 {
+  right: 18%;
+  transform: perspective(1000px) rotateY(6deg) rotateX(4deg);
+  opacity: 0.5;
+  animation: flowLine3 20s ease-in-out infinite;
+}
+
+/* Add flowing animations */
+@keyframes flowLine1 {
+  0%, 100% { transform: perspective(1000px) rotateY(5deg) rotateX(2deg); }
+  50% { transform: perspective(1000px) rotateY(8deg) rotateX(-1deg); }
+}
+
+@keyframes flowLine2 {
+  0%, 100% { transform: perspective(1000px) rotateY(-8deg) rotateX(-3deg); }
+  50% { transform: perspective(1000px) rotateY(-4deg) rotateX(2deg); }
+}
+
+@keyframes flowLine3 {
+  0%, 100% { transform: perspective(1000px) rotateY(6deg) rotateX(4deg); }
+  50% { transform: perspective(1000px) rotateY(2deg) rotateX(-3deg); }
+}
+
+/* Remove animations for faster loading */
+.no-animation {
+  opacity: 1 !important;
+  transform: none !important;
+  animation: none !important;
+}
+
+/* Override existing animation styles */
+a {
+  opacity: 1;
+  animation: none;
+}
+
+h2 {
+  animation: none;
+}
+
+.text-reveal {
+  opacity: 1;
+  animation: none;
+}
+
+/* Fix the glow animation */
+@keyframes initialGlow {
+  0% { box-shadow: 0 0 0px rgba(117,178,255,0); }
+  50% { box-shadow: 0 0 30px rgba(117,178,255,0.5); }
+  100% { box-shadow: 0 0 15px rgba(117,178,255,0.2); }
+}
+
+.animate-initialGlow {
+  animation: initialGlow 3s ease-out forwards;
+}
+
+input {
+  font-family: inherit;
+}
+
+input::placeholder {
+  color: #0066FF;
+  opacity: 0.7;
+}
+
+@keyframes blink {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0; }
+}
+
+.animate-blink {
+  animation: blink 1s step-end infinite;
+}
+
+@keyframes draw {
+  0% {
+    stroke-dasharray: 300;
+    stroke-dashoffset: 300;
+  }
+  100% {
+    stroke-dasharray: 300;
+    stroke-dashoffset: 0;
+  }
+}
+
+.animate-draw {
+  animation: draw 1s ease-out forwards;
+}
+
+@keyframes textReveal {
+  0% {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+h2 {
+  animation: textReveal 1s ease-out forwards;
+  font-size: 90%;
+}
+
+.text-reveal {
+  opacity: 0;
+  animation: textReveal 1s ease-out forwards;
+}
+
+@keyframes glow {
+  0%, 100% { 
+    filter: drop-shadow(0 0 20px rgba(0, 102, 255, 0.3));
+  }
+  50% { 
+    filter: drop-shadow(0 0 40px rgba(0, 102, 255, 0.6));
+  }
+}
+
+/* Fix the glow effect - remove boxes */
+.glow-on-load {
+  position: relative;
+  box-shadow: none;
+  transition: all 0.3s ease;
+}
+
+.glow-effect {
+  opacity: 0.3 !important;
+  filter: blur(25px);
+  z-index: -1;
+}
+
+.group:hover .glow-effect {
+  opacity: 0.5 !important;
+  filter: blur(30px);
+}
+
+.group:hover {
+  box-shadow: none;
+  color: #75B2FF;
+}
+
+/* Remove all dotted line styles */
+.dotted-lines::before,
+.dotted-lines::after,
+.middle-line {
+  display: none;
+}
+
+/* Adjust the main content sizing */
+.main-content {
+  max-width: 100%;
+  margin: 0 auto;
+}
+
+/* Make headings slightly smaller */
+h1 {
+  font-size: 90%;
+}
+
+/* Adjust font sizes to be slightly smaller */
+h1.text-[120px] {
+  font-size: 108px; /* 90% of 120px */
+}
+
+h2.text-3xl {
+  font-size: 1.6rem;
+  font-weight: 700;
+  letter-spacing: 0.02em;
+}
+
+h3.text-4xl {
+  font-size: 1.8rem; /* Slightly smaller than text-4xl */
+}
+
+/* Scroll down arrow button */
+.scroll-arrow {
+  position: absolute;
+  bottom: 40px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  background-color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  box-shadow: 0 0 15px rgba(117, 178, 255, 0.5);
+  cursor: pointer;
+  transition: all 0.3s ease;
+  z-index: 20;
+}
+
+.scroll-arrow:hover {
+  transform: translateX(-50%) translateY(5px);
+  box-shadow: 0 0 20px rgba(117, 178, 255, 0.8);
+}
+
+.scroll-arrow svg {
+  width: 24px;
+  height: 24px;
+  stroke: #75B2FF;
+  stroke-width: 2;
+  transition: all 0.3s ease;
+}
+
+.scroll-arrow:hover svg {
+  stroke: #5a9fe8;
+}
+
+/* Animation for the arrow */
+@keyframes bounce {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(5px); }
+}
+
+.scroll-arrow svg {
+  animation: bounce 2s ease-in-out infinite;
+}
+
+/* Inline scroll arrow button - updated style */
+.scroll-arrow-inline {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background-color: #75B2FF; /* Light blue background */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  box-shadow: 0 0 15px rgba(117, 178, 255, 0.5);
+  cursor: pointer;
+  transition: all 0.3s ease;
+  margin-bottom: 5px;
+}
+
+.scroll-arrow-inline:hover {
+  transform: translateY(5px);
+  box-shadow: 0 0 20px rgba(117, 178, 255, 0.8);
+}
+
+.scroll-arrow-inline svg {
+  width: 20px;
+  height: 20px;
+  stroke: white; /* White arrow */
+  stroke-width: 2;
+  transition: all 0.3s ease;
+  /* Animation removed */
+}
+
+.scroll-arrow-inline:hover svg {
+  stroke: #f0f0f0; /* Slightly darker white on hover */
+}
+
+/* Improved text glow effect with better contrast */
+.glow-text {
+  position: relative;
+  color: #C5DDFF;
+  text-shadow: 0 0 8px rgba(117, 178, 255, 0.2);
+  transition: all 0.3s ease;
+  font-weight: 700;
+  animation: initialGlowAndDim 2s ease-out forwards;
+}
+
+.glow-text:hover {
+  color: #75B2FF;
+  text-shadow: 0 0 15px rgba(117, 178, 255, 0.6), 
+               0 0 25px rgba(117, 178, 255, 0.4);
+  animation: none;
+}
+
+/* Typewriter effect */
+.typewriter {
+  position: relative;
+  white-space: pre;
+}
+
+.cursor {
+  display: inline-block;
+  width: 2px;
+  height: 1em;
+  background-color: #1a1f71;
+  margin-left: 2px;
+  animation: blink 0.7s step-end infinite;
+  vertical-align: text-bottom;
+}
+
+@keyframes blink {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0; }
+}
+
+/* Button typewriter effect */
+.button-typewriter {
+  position: relative;
+  white-space: nowrap;
+}
+
+.cursor-white {
+  display: inline-block;
+  width: 2px;
+  height: 1em;
+  background-color: white;
+  margin-left: 2px;
+  animation: blink 0.7s step-end infinite;
+  vertical-align: text-bottom;
+}
+
+/* Initial glow animation that dims after 2 seconds - more subtle */
+@keyframes initialGlowAndDim {
+  0% { 
+    text-shadow: 0 0 10px rgba(117, 178, 255, 0.4),
+                 0 0 20px rgba(117, 178, 255, 0.2);
+    color: #C5DDFF;
+  }
+  50% { 
+    text-shadow: 0 0 20px rgba(117, 178, 255, 0.7), 
+                 0 0 30px rgba(117, 178, 255, 0.5), 
+                 0 0 40px rgba(117, 178, 255, 0.3);
+    color: #75B2FF;
+  }
+  100% { 
+    text-shadow: 0 0 8px rgba(117, 178, 255, 0.2);
+    color: #C5DDFF;
+  }
+}
+
+/* Animated dot on vertical line */
+.animated-dot {
+  position: absolute;
+  left: -4px;
+  top: 0;
+  width: 6px;
+  height: 6px;
+  background-color: #75B2FF;
+  border-radius: 50%;
+  animation: moveUpDown 3s ease-in-out infinite;
+}
+
+@keyframes moveUpDown {
+  0%, 100% { 
+    top: 0; 
+  }
+  50% { 
+    top: 100%; 
+  }
+}
+
+/* Animation for flowing down the line */
+@keyframes flowDown {
+  0% {
+    top: 0;
+    opacity: 0;
+  }
+  10% {
+    opacity: 1;
+  }
+  90% {
+    opacity: 1;
+  }
+  100% {
+    top: 100%;
+    opacity: 0;
+  }
+}
+
+.animate-flowDown {
+  animation: flowDown 3s ease-in-out infinite;
+}
+
+/* Animation for fade in verification check */
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+    transform: scale(0.8);
+  }
+  70% {
+    opacity: 0;
+    transform: scale(0.8);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+.animate-fadeIn {
+  animation: fadeIn 3s ease-out forwards;
+}
+
+/* Animation for delayed fade in verification check - appears only after dot reaches end */
+@keyframes delayedFadeIn {
+  0%, 80% {
+    opacity: 0;
+    transform: scale(0.8);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+.animate-delayedFadeIn {
+  animation: delayedFadeIn 3s ease-out forwards;
+}
+
+/* Animation for check mark that appears after dot hits the bottom */
+@keyframes checkPulse {
+  0%, 85% {
+    opacity: 0;
+    transform: scale(0);
+  }
+  90%, 95% {
+    opacity: 1;
+    transform: scale(1);
+  }
+  100% {
+    opacity: 0;
+    transform: scale(0);
+  }
+}
+
+.animate-checkPulse {
+  animation: checkPulse 3s ease-in-out infinite;
+}
+
+/* Animation for second flowing dot with delay */
+@keyframes flowDown2 {
+  0%, 40% {
+    top: 0;
+    opacity: 0;
+  }
+  50%, 90% {
+    opacity: 1;
+  }
+  100% {
+    top: 100%;
+    opacity: 0;
+  }
+}
+
+.animate-flowDown2 {
+  animation: flowDown2 3s ease-in-out infinite;
+}
+
+/* Animation for second check mark that appears after second dot hits bottom */
+@keyframes checkPulse2 {
+  0%, 90% {
+    opacity: 0;
+    transform: scale(0);
+  }
+  95%, 98% {
+    opacity: 1;
+    transform: scale(1);
+  }
+  100% {
+    opacity: 0;
+    transform: scale(0);
+  }
+}
+
+.animate-checkPulse2 {
+  animation: checkPulse2 3s ease-in-out infinite;
+} 
