@@ -1,4 +1,4 @@
-import { SearchIcon } from '@heroicons/react/outline'
+import { MagnifyingGlassIcon } from '@heroicons/react/24/outline'
 
 const categories = [
   'AI & Machine Learning',
@@ -23,7 +23,7 @@ export default function Discover() {
               className="w-full px-6 py-4 rounded-full text-lg focus:outline-none shadow-lg border"
             />
             <button className="absolute right-4 top-1/2 -translate-y-1/2">
-              <SearchIcon className="w-6 h-6 text-gray-400" />
+              <MagnifyingGlassIcon className="w-6 h-6 text-gray-400" />
             </button>
           </div>
         </div>
