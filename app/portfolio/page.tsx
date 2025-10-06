@@ -1,4 +1,5 @@
 import Image from 'next/image'
+import Navigation from '../components/Navigation'
 
 const portfolioCompanies = [
   {
@@ -12,8 +13,9 @@ const portfolioCompanies = [
 
 export default function Portfolio() {
   return (
-    <div className="min-h-screen bg-white pt-24">
-      <div className="max-w-7xl mx-auto px-6">
+    <div className="min-h-screen bg-white">
+      <Navigation />
+      <div className="max-w-7xl mx-auto px-6 pt-24">
         <h1 className="text-6xl font-serif text-navy-900 mb-12">Portfolio</h1>
         
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">

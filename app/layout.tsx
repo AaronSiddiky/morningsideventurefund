@@ -12,7 +12,6 @@ export default function RootLayout({
         <div className="curved-line-1"></div>
         <div className="curved-line-2"></div>
         <div className="curved-line-3"></div>
-        <Navigation />
         {children}
       </body>
     </html>

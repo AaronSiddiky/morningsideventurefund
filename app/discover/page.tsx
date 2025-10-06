@@ -1,4 +1,5 @@
 import { MagnifyingGlassIcon } from '@heroicons/react/24/outline'
+import Navigation from '../components/Navigation'
 
 const categories = [
   'AI & Machine Learning',
@@ -10,8 +11,9 @@ const categories = [
 
 export default function Discover() {
   return (
-    <div className="min-h-screen bg-white pt-24">
-      <div className="max-w-7xl mx-auto px-6">
+    <div className="min-h-screen bg-white">
+      <Navigation />
+      <div className="max-w-7xl mx-auto px-6 pt-24">
         <h1 className="text-6xl font-serif text-navy-900 mb-12">Discover</h1>
         
         {/* Search Section */}

@@ -1,7 +1,10 @@
+import Navigation from '../components/Navigation'
+
 export default function Perspectives() {
   return (
-    <div className="min-h-screen bg-white pt-24">
-      <div className="max-w-7xl mx-auto px-6">
+    <div className="min-h-screen bg-white">
+      <Navigation />
+      <div className="max-w-7xl mx-auto px-6 pt-24">
         <h1 className="text-6xl font-serif text-navy-900 mb-12">Investment Thesis</h1>
         
         <div className="prose prose-lg max-w-none">
