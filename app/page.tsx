@@ -526,7 +526,7 @@ export default function Home() {
                     <tr className="border-b bg-gray-50">
                       <td className="p-6 font-bold text-xl text-[#000035]">Investment Profile</td>
                       <td className="p-6 text-center">Startup raising ~$100k from angels, f&f rounds, or VCs</td>
-                      <td className="p-6 text-center">Startups with >200k ARR or clear PMF</td>
+                      <td className="p-6 text-center">Startups with &gt;200k ARR or clear PMF</td>
                     </tr>
                     <tr className="border-b">
                       <td className="p-6 font-bold text-xl text-[#000035]">Average Check Size</td>
