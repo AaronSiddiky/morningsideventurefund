@@ -26,6 +26,32 @@ export default function TeamPage() {
 
           {/* Team Members Grid */}
           <div className="pl-8 grid grid-cols-3 gap-6">
+            {/* Ryan Fortani */}
+            <div className="bg-white rounded-xl shadow-md overflow-hidden transition-all duration-300 hover:shadow-lg hover:translate-y-[-5px]">
+              <div className="h-64 bg-gray-200 relative">
+                <div className="absolute inset-0 flex items-center justify-center text-gray-400">
+                  Photo
+                </div>
+              </div>
+              <div className="p-6">
+                <h4 className="text-xl font-bold text-[#000035]">Ryan Fortani</h4>
+                <p className="text-[#3A4764] font-medium mt-1">Team Member</p>
+              </div>
+            </div>
+
+            {/* Kevin Xu */}
+            <div className="bg-white rounded-xl shadow-md overflow-hidden transition-all duration-300 hover:shadow-lg hover:translate-y-[-5px]">
+              <div className="h-64 bg-gray-200 relative">
+                <div className="absolute inset-0 flex items-center justify-center text-gray-400">
+                  Photo
+                </div>
+              </div>
+              <div className="p-6">
+                <h4 className="text-xl font-bold text-[#000035]">Kevin Xu</h4>
+                <p className="text-[#3A4764] font-medium mt-1">Team Member</p>
+              </div>
+            </div>
+
             {/* Jake Lee */}
             <div className="bg-white rounded-xl shadow-md overflow-hidden transition-all duration-300 hover:shadow-lg hover:translate-y-[-5px]">
               <div className="h-64 bg-gray-200 relative">
