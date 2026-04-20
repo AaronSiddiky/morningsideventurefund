@@ -1,5 +1,10 @@
 import './globals.css'
-import Navigation from './components/Navigation'
+import type { Metadata } from 'next'
+
+export const metadata: Metadata = {
+  title: 'Morningside Venture Fund',
+  description: 'Coming soon.',
+}
 
 export default function RootLayout({
   children,
@@ -8,12 +13,7 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body>
-        <div className="curved-line-1"></div>
-        <div className="curved-line-2"></div>
-        <div className="curved-line-3"></div>
-        {children}
-      </body>
+      <body>{children}</body>
     </html>
   )
-} 
+}
